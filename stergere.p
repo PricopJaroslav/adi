@@ -4,9 +4,9 @@
 
 FIND LAST Customer WHERE Customer.City = "Newark" EXCLUSIVE-LOCK NO-ERROR.
 
-    FOR EACH Order WHERE Order.CustNum = Customer.CustNum EXCLUSIVE-LOCK.
+    FOR EACH Order WHERE Order.CustNum = Customer.CustNum :
 
-/*         FOR EACH OrderLine WHERE OrderLine.Ordernum = Order.Ordernum EXCLUSIVE-LOCK.*/
+/*         FOR EACH OrderLine WHERE OrderLine.Ordernum = Order.Ordernum :*/
 /*        DELETE OrderLine.                                                            */
 /*                                                                                     */
 /*END.                                                                                 */
