@@ -23,12 +23,12 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 
 DEF VAR c AS CHARACTER NO-UNDO.
 c = "Cluj-Napoca - Berlin".
-DEF VAR cField1 AS CHAR NO-UNDO.
-DEF VAR cField2 AS CHAR NO-UNDO.
-DEF VAR c2 AS CHARACTER NO-UNDO.
+DEF VAR cField1 AS CHARACTER NO-UNDO.
+DEF VAR cField2 AS CHARACTER NO-UNDO.
+DEF VAR c2      AS CHARACTER NO-UNDO.
 
 c2 = REPLACE (c, " - ", "*").
-cField1 = ENTRY (1, c2 , "*").
+cField1 = ENTRY(1, c2 , "*").
 cField2 = ENTRY(2 , c2, "*").
 DISPLAY cField1 FORMAT "X(20)"
         cField2 FORMAT "X(20)".
