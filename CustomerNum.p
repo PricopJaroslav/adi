@@ -4,12 +4,12 @@
 */
 
 DEFINE VAR cAddressNum AS CHARACTER NO-UNDO.
-DEFINE VAR cAddress AS CHARACTER NO-UNDO.
+DEFINE VAR cAddress    AS CHARACTER NO-UNDO.
 
 DEFINE BUFFER BufCustomer  FOR Customer.
 
 FUNCTION StreetNumber RETURNS CHARACTER (INPUT Address AS CHARACTER):
-    cAddressNum = STRING(INTEGER(ENTRY(1, Address, " ")))NO-ERROR.  
+    cAddressNum = STRING(INTEGER(ENTRY(1, Address, " "))) NO-ERROR.  
     IF ERROR-STATUS:ERROR THEN 
         RETURN "NO NUMBER".
     ELSE 
@@ -25,12 +25,12 @@ FUNCTION StreetAddress RETURNS CHARACTER (INPUT Address AS CHARACTER):
     ELSE 
         RETURN Address.
 END.        
-OUTPUT TO ADDRESS.
+OUTPUT TO ADDRESS.txt.
 
 FOR EACH BufCustomer WHERE BufCustomer.State BEGINS "N" NO-LOCK.
 
     DISPLAY     StreetAddress (BufCustomer.Address) FORMAT "X(20)"
-                StreetNumber(BufCustomer.Address) FORMAT "X(9)".
+                StreetNumber(BufCustomer.Address)   FORMAT "X(9)".
 END.  
 
 OUTPUT CLOSE.
