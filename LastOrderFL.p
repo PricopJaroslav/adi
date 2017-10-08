@@ -24,13 +24,13 @@ BLOCK-LEVEL ON ERROR UNDO, THROW.
 /*
 1. Suma de plata pentru fiecare ultima comanda a Clientilor din Florida.
 */
-DEFINE BUFFER BufCustomer FOR Customer .
-DEFINE BUFFER BufOrder    FOR Order .  
+DEFINE BUFFER BufCustomer  FOR Customer .
+DEFINE BUFFER BufOrder     FOR Order .  
 DEFINE BUFFER BufOrderLine FOR OrderLine.
 
 DEFINE VARIABLE ITotal AS INTEGER NO-UNDO.
 
-OUTPUT TO LastOrderOfCust.
+OUTPUT TO LastOrderOfCust.txt.
 FOR EACH BufCustomer WHERE BufCustomer.State = "FL" NO-LOCK:
     DISPLAY BufCustomer.Name.
     FIND LAST BufOrder WHERE BufOrder.CustNum = BufCustomer.CustNum NO-LOCK NO-ERROR.
@@ -39,7 +39,7 @@ FOR EACH BufCustomer WHERE BufCustomer.State = "FL" NO-LOCK:
         FOR EACH BufOrderLine WHERE BufOrderLine.Ordernum = BufOrder.Ordernum NO-LOCK.
             ITotal = ITotal + BufOrderLine.Qty *( BufOrderLine.Price - BufOrderLine.Discount * BufOrderLine.Price / 100).
         END.
-         DISPLAY ITotal.
+        DISPLAY ITotal.
 END.
 
 OUTPUT CLOSE.
