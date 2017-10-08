@@ -7,7 +7,7 @@ FOR EACH Customer NO-LOCK,
      EACH Order OF Customer NO-LOCK:
         IF (MONTH(Order.OrderDate + 1) <> MONTH(Order.OrderDate)) THEN
             DISPLAY 
-			Customer.Name 
+		Customer.Name 
     		Order.OrderDate  
-			ENTRY(WEEKDAY(Order.OrderDate),DayList) LABEL "Day".
+		ENTRY(WEEKDAY(Order.OrderDate),DayList) LABEL "Day".
 END.   
