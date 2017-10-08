@@ -12,7 +12,7 @@ DEFINE VARIABLE cCityMostOrd AS CHARACTER NO-UNDO.
 FUNCTION NrOrders RETURNS INTEGER (INPUT City AS CHARACTER):
     DEFINE VARIABLE iNumOrd AS INTEGER   NO-UNDO.
     FOR EACH BufFunCustomer WHERE BufFunCustomer.City = City NO-LOCK,
-        EACH BufOrder WHERE BufOrder.CustNum = BufFunCustomer.CustNum NO-LOCK:
+        EACH BufOrder       WHERE    BufOrder.CustNum = BufFunCustomer.CustNum NO-LOCK:
             iNumOrd = iNumOrd + 1.
     END.
     RETURN iNumOrd.
@@ -24,7 +24,7 @@ FOR EACH BufCustomer NO-LOCK BREAK BY BufCustomer.City :
         DO:
             IF ( iMostNumOrd < NrOrders(BufCustomer.City)) THEN
                 DO:
-                    iMostNumOrd = NrOrders(BufCustomer.City).
+                    iMostNumOrd  = NrOrders(BufCustomer.City).
                     cCityMostOrd = BufCustomer.City.
                 END.
         END.
