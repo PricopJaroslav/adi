@@ -1,0 +1,2 @@
+TRIGGER PROCEDURE FOR CREATE OF Grades.
+ASSIGN Grades.GradeNum = NEXT-VALUE(Next_GradeNum).

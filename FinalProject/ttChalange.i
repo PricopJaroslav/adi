@@ -1,0 +1,1 @@
+DEFINE TEMP-TABLE ttChalange LIKE Chalage BEFORE-TABLE ttChalangeBefore.

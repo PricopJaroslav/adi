@@ -1,0 +1,2 @@
+TRIGGER PROCEDURE FOR CREATE OF Program.
+ASSIGN Program.Number = NEXT-VALUE(Next_Number).

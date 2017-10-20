@@ -1,0 +1,2 @@
+TRIGGER PROCEDURE FOR CREATE OF ChalangeLine.
+ASSIGN ChalangeLine.ChalangeLineNum = NEXT-VALUE(Next_ChalangeLineNum).

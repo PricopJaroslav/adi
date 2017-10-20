@@ -1,0 +1,1 @@
+DEFINE TEMP-TABLE ttUsers LIKE Users BEFORE-TABLE ttUsersBefore.

@@ -1,0 +1,2 @@
+TRIGGER PROCEDURE FOR CREATE OF Users.
+ASSIGN Users.UserNum = NEXT-VALUE(Next_UserNum). 
